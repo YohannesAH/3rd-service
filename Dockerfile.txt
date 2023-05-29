@@ -1,11 +1,16 @@
-FROM alpine:latest
+FROM python:3.9-alpine
+
 # Copy application code
 COPY . /app
 WORKDIR /app
 
 # Install dependencies
-RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev python3-dev
+RUN python -m pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Install azure-ai-translation-text
+RUN pip install --no-cache-dir azure-ai-translation-text
 
 # Expose the application port
 EXPOSE 5002
@@ -17,4 +22,3 @@ ENV LOCATION="northeurope"
 
 # Start the application
 CMD ["python", "app.py"]
-
