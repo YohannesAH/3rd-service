@@ -1,0 +1,4 @@
+python==3.9
+Flask==2.0.1
+requests
+azure-cognitiveservices-language  # Add specific Azure SDK package if required
