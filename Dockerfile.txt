@@ -1,5 +1,4 @@
-FROM python:3.9-alpine
-
+FROM alpine:latest
 # Copy application code
 COPY . /app
 WORKDIR /app
@@ -18,3 +17,4 @@ ENV LOCATION="northeurope"
 
 # Start the application
 CMD ["python", "app.py"]
+
