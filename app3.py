@@ -10,8 +10,11 @@ key = os.environ.get('API_KEY')
 endpoint = os.environ.get('ENDPOINT')
 location = "northeurope"
 
-@app.route('/translate', methods=['POST'])
+@app.route('/translate', methods=['GET', 'POST'])
 def translate():
+    if request.method == 'GET':
+        return jsonify({'message': 'GET request is supported. Use a POST request for translation.'})
+
     path = '/translate'
     constructed_url = endpoint + path
 
