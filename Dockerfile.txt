@@ -21,4 +21,4 @@ ENV ENDPOINT="your-endpoint"
 ENV LOCATION="northeurope"
 
 # Start the application
-CMD ["python", "app.py"]
+CMD ["python", "app3.py"]
